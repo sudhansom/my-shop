@@ -1,0 +1,11 @@
+<div class="card">
+  <aside class="category">
+    <label for="category">Choose a category:</label>
+    <select name="category" id="category">
+      <option value="-">All</option>
+      <option [value]="category" *ngFor="let category of categories">
+        {{ category }}
+      </option>
+    </select>
+  </aside>
+</div>

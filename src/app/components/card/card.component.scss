@@ -1,0 +1,14 @@
+:host {
+  .card {
+    max-width: 90%;
+    margin: 24px auto;
+    padding: 12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 6px;
+    .category {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+}

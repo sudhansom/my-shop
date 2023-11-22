@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { map } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { DataService } from '../../services/data.service';
 import { ProductComponent } from '../../components/product/product.component';
-import { BehaviorSubject } from 'rxjs';
+import { CardComponent } from '../../components/card/card.component';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, ProductComponent],
+  imports: [CommonModule, ProductComponent, CardComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })

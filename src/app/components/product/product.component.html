@@ -3,11 +3,11 @@
     <img [src]="product?.image" alt="product" />
   </div>
   <div class="details">
-    <h5>{{ product?.title }}</h5>
-    <p class="description">{{ product?.description }}</p>
+    <h5 class="one-line">{{ product?.title }}</h5>
+    <p class="one-line">{{ product?.description }}</p>
   </div>
-  <div class="action">
-    <p>{{ product?.price | currency }}</p>
-    <button>Shop</button>
+  <div class="actions">
+    <p class="price">{{ product?.price | currency }}</p>
+    <img src="../../../assets/icons/cart.svg" alt="" />
   </div>
 </div>
