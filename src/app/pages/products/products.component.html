@@ -1,13 +1,21 @@
 <div class="container">
   <aside class="category">
-    <label for="cars">Choose a car:</label>
-
-    <select name="cars" id="cars">
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
+    <label for="category">Choose a category:</label>
+    <select name="category" id="category">
+      <option value="-"></option>
+      <option
+        (click)="selectCategory(category)"
+        [value]="category"
+        *ngFor="let category of category$ | async"
+      >
+        {{ category }}
+      </option>
     </select>
   </aside>
-  <main class="products">main</main>
+  <main class="products">
+    <app-product
+      *ngFor="let product of products$ | async"
+      [product]="product"
+    ></app-product>
+  </main>
 </div>

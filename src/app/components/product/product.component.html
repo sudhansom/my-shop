@@ -1,0 +1,13 @@
+<div class="each-product">
+  <div class="image">
+    <img [src]="product?.image" alt="product" />
+  </div>
+  <div class="details">
+    <h5>{{ product?.title }}</h5>
+    <p class="description">{{ product?.description }}</p>
+  </div>
+  <div class="action">
+    <p>{{ product?.price | currency }}</p>
+    <button>Shop</button>
+  </div>
+</div>
