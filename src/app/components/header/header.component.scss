@@ -1,0 +1,19 @@
+:host {
+  .container {
+    background: #123456;
+    color: #fff;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: space-between;
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+
+      li {
+        cursor: pointer;
+      }
+    }
+  }
+}

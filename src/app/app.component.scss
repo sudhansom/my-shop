@@ -1,0 +1,19 @@
+:host {
+  .container {
+    max-width: 1000px;
+    height: 4dvh;
+    margin: auto;
+
+    .header {
+      display: block;
+    }
+    .pages {
+      height: 90dvh;
+    }
+    .footer {
+      height: 4dvh;
+      background-color: #123456;
+      color: #fff;
+    }
+  }
+}
