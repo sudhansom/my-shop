@@ -1,15 +1,28 @@
 <div class="card">
-  <aside class="category">
+  <div class="category">
     <label for="category">Choose a category:</label>
     <select
       *ngIf="categories.length"
       name="category"
       id="category"
-      (change)="abc($event)"
+      (change)="selectCategory($event)"
     >
       <option [value]="category" *ngFor="let category of categories">
         {{ category }}
       </option>
     </select>
-  </aside>
+  </div>
+  <div class="sort">
+    <label for="sort">Sort By:</label>
+    <select
+      *ngIf="categories.length"
+      name="sort"
+      id="sort"
+      (change)="selectSort($event)"
+    >
+      <option [value]="s" *ngFor="let s of sort">
+        {{ s }}
+      </option>
+    </select>
+  </div>
 </div>

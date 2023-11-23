@@ -3,6 +3,7 @@
     <app-card
       [categories]="category$ | async"
       (onCategorySelected)="selectCategory($event)"
+      (onSort)="selectSort($event)"
     ></app-card>
 
     <main class="products">

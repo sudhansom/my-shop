@@ -7,6 +7,13 @@ import { DataService } from '../../services/data.service';
 import { ProductComponent } from '../../components/product/product.component';
 import { CardComponent } from '../../components/card/card.component';
 
+interface IProduct {
+  category: string;
+  id: number;
+  image: string;
+  price: number;
+}
+
 @Component({
   selector: 'app-products',
   standalone: true,
@@ -55,6 +62,19 @@ export class ProductsComponent implements OnInit {
           });
         this._data.category$.next(category);
       }
+    );
+  }
+
+  selectSort(sort: string) {
+    this.products$ = this._data.getProducts();
+    this.products$ = this.products$.pipe(
+      map((products: IProduct[]) =>
+        products.sort((a, b) => {
+          if (sort === 'asc') {
+            return a.price > b.price ? 1 : -1;
+          } else return a.price < b.price ? 1 : -1;
+        })
+      )
     );
   }
 }

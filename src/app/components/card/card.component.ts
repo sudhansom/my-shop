@@ -12,13 +12,15 @@ import { FormsModule } from '@angular/forms';
 export class CardComponent {
   @Input() categories?: any;
   @Output() onCategorySelected = new EventEmitter<string>();
+  @Output() onSort = new EventEmitter<string>();
   category = '';
+  sort = ['asc', 'dsc'];
 
-  selectCategory(cat: string) {
-    console.log(cat);
-  }
-  abc(aaa: Event) {
-    console.log('aaa', (aaa.target as HTMLSelectElement)?.value);
+  selectCategory(aaa: Event) {
     this.onCategorySelected.emit((aaa.target as HTMLSelectElement)?.value);
+  }
+
+  selectSort(aaa: Event) {
+    this.onSort.emit((aaa.target as HTMLSelectElement)?.value);
   }
 }

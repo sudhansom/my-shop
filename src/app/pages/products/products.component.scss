@@ -1,11 +1,13 @@
 :host {
   .container {
     display: flex;
+
     .products {
       flex-basis: 70%;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
+      padding: 12px;
     }
   }
 }
