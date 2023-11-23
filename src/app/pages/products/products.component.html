@@ -1,6 +1,9 @@
 <div class="container">
   <div>
-    <app-card [categories]="category$ | async"></app-card>
+    <app-card
+      [categories]="category$ | async"
+      (onCategorySelected)="selectCategory($event)"
+    ></app-card>
 
     <main class="products">
       <app-product

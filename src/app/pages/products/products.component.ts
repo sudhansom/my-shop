@@ -21,6 +21,24 @@ export class ProductsComponent implements OnInit {
   constructor(private _data: DataService) {}
 
   ngOnInit() {
+    this.fetchData();
+  }
+  selectCategory(category: string) {
+    this.products$ = this._data.getProducts();
+    this.products$ = this.products$.pipe(
+      map((product) =>
+        product.filter(
+          (prod: {
+            category: string;
+            id: number;
+            image: string;
+            price: number;
+          }) => prod.category === category
+        )
+      )
+    );
+  }
+  fetchData() {
     this.products$.subscribe(
       (
         products: {
@@ -37,20 +55,6 @@ export class ProductsComponent implements OnInit {
           });
         this._data.category$.next(category);
       }
-    );
-  }
-  selectCategory(category: string) {
-    this.products$ = this.products$.pipe(
-      map((product) =>
-        product.filter(
-          (prod: {
-            category: string;
-            id: number;
-            image: string;
-            price: number;
-          }) => prod.category === category
-        )
-      )
     );
   }
 }

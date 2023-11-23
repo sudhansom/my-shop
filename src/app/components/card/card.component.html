@@ -1,8 +1,12 @@
 <div class="card">
   <aside class="category">
     <label for="category">Choose a category:</label>
-    <select name="category" id="category">
-      <option value="-">All</option>
+    <select
+      *ngIf="categories.length"
+      name="category"
+      id="category"
+      (change)="abc($event)"
+    >
       <option [value]="category" *ngFor="let category of categories">
         {{ category }}
       </option>
