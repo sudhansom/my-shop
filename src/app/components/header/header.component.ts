@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SvgIconDirective } from '../../../directives/svg-icon/svg-icon.directive';
 import { NavigationDirective } from '../../../directives/navigtion/navigation.directive';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -11,4 +12,10 @@ import { NavigationDirective } from '../../../directives/navigtion/navigation.di
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  showCart$ = new BehaviorSubject<boolean>(false);
+
+  toogleShowCart() {
+    this.showCart$.next(!this.showCart$.value);
+  }
+}

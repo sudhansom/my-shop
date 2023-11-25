@@ -1,6 +1,7 @@
 :host {
   --badge-width: 18px;
   .container {
+    position: relative;
     background: #123456;
     color: #fff;
     padding: 12px;
@@ -42,6 +43,36 @@
           background-color: red;
           right: calc(var(--badge-width) / -2);
           top: calc(var(--badge-width) / -2);
+        }
+      }
+    }
+    .showCart {
+      position: absolute;
+      right: 6px;
+      top: 24px;
+      min-width: 100px;
+      min-height: 100px;
+      border-radius: 12px;
+      background-color: #fff;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      padding: 12px;
+      .items {
+        height: 80%;
+      }
+      .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-block: 12px;
+        .remove {
+          fill: red;
+          cursor: pointer;
+          border: none;
+        }
+        .checkout {
+          fill: green;
+          cursor: pointer;
+          border: none;
         }
       }
     }

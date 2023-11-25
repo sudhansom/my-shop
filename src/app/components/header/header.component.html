@@ -5,13 +5,23 @@
     <li><a smNavigate="/about">about</a></li>
     <li><a smNavigate="/services">services</a></li>
     <li>
-      <a smNavigate="/cart">
-        <span
-          class="cart"
-          data-after-content="1"
-          smSvgIcon="shopping_cart"
-        ></span>
-      </a>
+      <span
+        (click)="toogleShowCart()"
+        class="cart"
+        data-after-content="1"
+        smSvgIcon="shopping_cart"
+      ></span>
     </li>
   </ul>
+  <div *ngIf="showCart$ | async" class="showCart">
+    <div class="items"></div>
+    <div class="actions">
+      <a class="remove">
+        <span smSvgIcon="remove_shopping_cart"></span>
+      </a>
+      <a class="checkout" smNavigate="/cart">
+        <span smSvgIcon="shopping_cart_checkout"></span>
+      </a>
+    </div>
+  </div>
 </div>
