@@ -22,6 +22,7 @@
       }
       .cart {
         position: relative;
+        fill: #fff;
         &:after {
           content: attr(data-after-content);
           position: absolute;
@@ -32,8 +33,8 @@
           height: var(--badge-width);
           border-radius: 50%;
           background-color: red;
-          right: calc(var(--badge-width) / -1.5);
-          top: calc(var(--badge-width) / -1.5);
+          right: calc(var(--badge-width) / -2);
+          top: calc(var(--badge-width) / -2);
         }
       }
     }
