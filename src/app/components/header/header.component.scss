@@ -6,6 +6,13 @@
     padding: 12px;
     display: flex;
     justify-content: space-between;
+    a {
+      color: #fff;
+      text-decoration: none;
+      &:visited {
+        color: #fff;
+      }
+    }
     ul {
       list-style-type: none;
       display: flex;

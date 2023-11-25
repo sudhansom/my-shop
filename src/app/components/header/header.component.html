@@ -1,15 +1,17 @@
 <div class="container">
-  <div class="logo"><p>myStore</p></div>
+  <div class="logo"><a smNavigate="/">myStore</a></div>
   <ul class="top-navigation">
-    <li>login</li>
-    <li>profile</li>
-    <li>services</li>
+    <li><a smNavigate="/profile">profile</a></li>
+    <li><a smNavigate="/about">about</a></li>
+    <li><a smNavigate="/services">services</a></li>
     <li>
-      <span
-        class="cart"
-        data-after-content="1"
-        smSvgIcon="shopping_cart"
-      ></span>
+      <a smNavigate="/cart">
+        <span
+          class="cart"
+          data-after-content="1"
+          smSvgIcon="shopping_cart"
+        ></span>
+      </a>
     </li>
   </ul>
 </div>
