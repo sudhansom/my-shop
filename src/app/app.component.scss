@@ -10,9 +10,12 @@
       min-height: 90dvh;
     }
     .footer {
-      height: 4dvh;
       background-color: #123456;
       color: #fff;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
