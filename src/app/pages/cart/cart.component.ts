@@ -15,10 +15,17 @@ import { Store } from '@ngrx/store';
 })
 export class CartComponent implements OnInit {
   cartItems$: Observable<ICartItem[]>;
+  totalAmount = 0;
 
   ngOnInit(): void {}
 
   constructor(private store: Store<{ cart: ICartItem[] }>) {
     this.cartItems$ = store.select('cart');
+    //remember to unsubscribe....
+    this.cartItems$.subscribe((items) => {
+      this.totalAmount = items
+        .map((item) => item.price * item.quantity)
+        .reduce((acc, curr) => acc + curr, 0);
+    });
   }
 }
