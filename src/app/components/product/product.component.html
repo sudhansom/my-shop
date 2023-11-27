@@ -9,6 +9,6 @@
   <div class="actions">
     <p class="price">{{ product?.price | currency }}</p>
     <!-- <img src="../../../assets/icons/cart.svg" alt="" /> -->
-    <span class="icon" smSvgIcon="shopping_cart"></span>
+    <span (click)="addToCart()" class="icon" smSvgIcon="shopping_cart"></span>
   </div>
 </div>

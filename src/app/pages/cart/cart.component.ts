@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ICartItem } from '../../models/cartItems.model';
 import { EachCartItemComponent } from '../../components/each-cart-item/each-cart-item.component';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-cart',
@@ -11,13 +13,12 @@ import { EachCartItemComponent } from '../../components/each-cart-item/each-cart
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
-export class CartComponent {
-  cartItems: ICartItem[] = [
-    {
-      image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-      name: "men's jacket",
-      price: 100,
-      quantity: 2,
-    },
-  ];
+export class CartComponent implements OnInit {
+  cartItems$: Observable<ICartItem[]>;
+
+  ngOnInit(): void {}
+
+  constructor(private store: Store<{ cart: ICartItem[] }>) {
+    this.cartItems$ = store.select('cart');
+  }
 }

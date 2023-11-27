@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ICartItem } from '../../models/cartItems.model';
 import { SvgIconDirective } from '../../../directives/svg-icon/svg-icon.directive';
+import { Store } from '@ngrx/store';
+import { addToCart, removeFromCart } from '../../store/cart.actions';
 
 @Component({
   selector: 'app-each-cart-item',
@@ -11,16 +13,23 @@ import { SvgIconDirective } from '../../../directives/svg-icon/svg-icon.directiv
   styleUrl: './each-cart-item.component.scss',
 })
 export class EachCartItemComponent implements OnInit {
-  @Input() cartItem?: ICartItem = {
-    image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-    name: "men's jacket",
-    price: 100,
-    quantity: 2,
-  };
+  Math = Math;
+  @Input() cartItem?: ICartItem;
   price = 0;
   ngOnInit() {
     if (this.cartItem) {
       this.price = this.cartItem.price * this.cartItem.quantity;
     }
   }
+  onAddToCart() {
+    if (this.cartItem) {
+      this.store.dispatch(addToCart({ product: this.cartItem }));
+    }
+  }
+  removeFromCart() {
+    if (this.cartItem) {
+      this.store.dispatch(removeFromCart({ product: this.cartItem }));
+    }
+  }
+  constructor(private store: Store<{ cart: ICartItem[] }>) {}
 }

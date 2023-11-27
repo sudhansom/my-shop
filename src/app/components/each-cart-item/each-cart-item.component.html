@@ -1,15 +1,15 @@
 <div *ngIf="cartItem" class="cart-item">
   <div class="image">
-    <img [src]="cartItem?.image" alt="image" />
+    <img [src]="cartItem.image" alt="image" />
   </div>
   <div class="details">
-    <p>{{ cartItem?.name }}</p>
+    <p>{{ cartItem.title }}</p>
     <div class="quantity">
-      <span [smSvgIcon]="'minus'"></span>
-      <p>{{ cartItem?.quantity }}</p>
-      <span [smSvgIcon]="'add'"></span>
+      <span (click)="removeFromCart()" [smSvgIcon]="'minus'"></span>
+      <p>{{ cartItem.quantity }}</p>
+      <span (click)="onAddToCart()" [smSvgIcon]="'add'"></span>
     </div>
-    <p>{{ price }}</p>
+    <p>{{ Math.floor(price) }}</p>
   </div>
   <div class="icon"><span [smSvgIcon]="'delete'"></span></div>
 </div>

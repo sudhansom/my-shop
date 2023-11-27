@@ -1,5 +1,8 @@
 <div class="cart">
-  <app-each-cart-item *ngFor="let item of [1, 2, 3, 4, 5]"></app-each-cart-item>
+  <app-each-cart-item
+    *ngFor="let item of cartItems$ | async"
+    [cartItem]="item"
+  ></app-each-cart-item>
   <div class="total-amount">
     <p>Total Amount</p>
     <p>{{ 500 | currency }}</p>
