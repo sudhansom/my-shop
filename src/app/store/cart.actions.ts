@@ -11,7 +11,7 @@ export const removeFromCart = createAction(
   props<{ product: ICartItem }>()
 );
 export const deleteFromCart = createAction(
-  '[Cart] remove',
+  '[Cart] delete',
   props<{ product: ICartItem }>()
 );
 

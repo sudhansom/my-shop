@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { addToCart, init, removeFromCart, set } from './cart.actions';
+import {
+  addToCart,
+  deleteFromCart,
+  init,
+  removeFromCart,
+  set,
+} from './cart.actions';
 import { Store } from '@ngrx/store';
 import { ICartItem } from '../models/cartItems.model';
 import { withLatestFrom, tap, switchMap, of } from 'rxjs';
@@ -25,7 +31,7 @@ export class CartEffects {
   onSave = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(addToCart, removeFromCart),
+        ofType(addToCart, removeFromCart, deleteFromCart),
         withLatestFrom(this.store.select('cart')),
         tap(([action, cart]) => {
           console.log(cart);
