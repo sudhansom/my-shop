@@ -15,6 +15,8 @@ export const deleteFromCart = createAction(
   props<{ product: ICartItem }>()
 );
 
+export const deleteAll = createAction('[Cart] deleteAll');
+
 export const init = createAction('[Cart] Init');
 
 export const set = createAction('[Cart] Set', props<{ cart: ICartItem[] }>());

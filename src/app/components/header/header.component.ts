@@ -6,6 +6,7 @@ import { NavigationDirective } from '../../../directives/navigtion/navigation.di
 import { BehaviorSubject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ICartItem } from '../../models/cartItems.model';
+import { deleteAll } from '../../store/cart.actions';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,7 @@ import { ICartItem } from '../../models/cartItems.model';
 export class HeaderComponent implements OnInit {
   showCart$ = new BehaviorSubject<boolean>(false);
   totalItem = 0;
+  cartItems$ = this.store.select('cart');
 
   toogleShowCart() {
     this.showCart$.next(!this.showCart$.value);
@@ -28,6 +30,11 @@ export class HeaderComponent implements OnInit {
         .map((item) => item.quantity)
         .reduce((acc, curr) => acc + curr, 0);
     });
+  }
+
+  deleteAll() {
+    this.store.dispatch(deleteAll());
+    this.toogleShowCart();
   }
 
   constructor(private store: Store<{ cart: ICartItem[] }>) {}

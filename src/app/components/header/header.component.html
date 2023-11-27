@@ -13,15 +13,23 @@
       ></span>
     </li>
   </ul>
-  <div *ngIf="showCart$ | async" class="showCart">
-    <div class="items"></div>
-    <div class="actions">
-      <a class="remove">
-        <span smSvgIcon="remove_shopping_cart"></span>
-      </a>
-      <a class="checkout" smNavigate="/cart" (click)="toogleShowCart()">
-        <span smSvgIcon="shopping_cart_checkout"></span>
-      </a>
+  <ng-container *ngIf="totalItem">
+    <div *ngIf="showCart$ | async" class="showCart">
+      <ol class="items">
+        <li *ngFor="let item of cartItems$ | async" class="each-item">
+          <p>{{ item.title }}</p>
+          <p>{{ item.price }}</p>
+          <p>{{ item.quantity }}</p>
+        </li>
+      </ol>
+      <div class="actions">
+        <a class="remove">
+          <span (click)="deleteAll()" smSvgIcon="remove_shopping_cart"></span>
+        </a>
+        <a class="checkout" smNavigate="/cart" (click)="toogleShowCart()">
+          <span smSvgIcon="shopping_cart_checkout"></span>
+        </a>
+      </div>
     </div>
-  </div>
+  </ng-container>
 </div>
