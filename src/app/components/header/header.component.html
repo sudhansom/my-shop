@@ -17,7 +17,7 @@
     <div *ngIf="showCart$ | async" class="showCart">
       <ol class="items">
         <li *ngFor="let item of cartItems$ | async" class="each-item">
-          <p>{{ item.title }}</p>
+          <p>{{ item.title | shorten }}</p>
           <p>{{ item.price }}</p>
           <p>{{ item.quantity }}</p>
         </li>

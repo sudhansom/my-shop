@@ -7,11 +7,12 @@ import { BehaviorSubject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ICartItem } from '../../models/cartItems.model';
 import { deleteAll } from '../../store/cart.actions';
+import { ShortenPipe } from '../../pipes/shorten.pipe';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, SvgIconDirective, NavigationDirective],
+  imports: [CommonModule, SvgIconDirective, NavigationDirective, ShortenPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
