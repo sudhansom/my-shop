@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { addToCart, removeFromCart, set } from './cart.actions';
+import { addToCart, deleteFromCart, removeFromCart, set } from './cart.actions';
 import { ICartItem } from '../models/cartItems.model';
 
 const initialState: ICartItem[] = [];
@@ -40,5 +40,8 @@ export const cartReducer = createReducer(
       })
       .filter((item) => item.quantity);
   }),
-  on(set, (state) => [])
+  on(set, (state, action) => action.cart),
+  on(deleteFromCart, (state, action) => {
+    return state.filter((item) => item.title !== action.product.title);
+  })
 );

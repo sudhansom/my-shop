@@ -10,7 +10,11 @@ export const removeFromCart = createAction(
   '[Cart] remove',
   props<{ product: ICartItem }>()
 );
+export const deleteFromCart = createAction(
+  '[Cart] remove',
+  props<{ product: ICartItem }>()
+);
 
 export const init = createAction('[Cart] Init');
 
-export const set = createAction('[Cart] Set');
+export const set = createAction('[Cart] Set', props<{ cart: ICartItem[] }>());

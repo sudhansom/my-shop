@@ -11,6 +11,8 @@
     </div>
     <p>{{ Math.floor(price) }}</p>
   </div>
-  <div class="icon"><span [smSvgIcon]="'delete'"></span></div>
+  <div (click)="deleteFromCart()" class="icon">
+    <span [smSvgIcon]="'delete'"></span>
+  </div>
 </div>
 <hr />

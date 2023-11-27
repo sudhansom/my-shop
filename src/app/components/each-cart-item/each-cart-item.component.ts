@@ -3,7 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ICartItem } from '../../models/cartItems.model';
 import { SvgIconDirective } from '../../../directives/svg-icon/svg-icon.directive';
 import { Store } from '@ngrx/store';
-import { addToCart, removeFromCart } from '../../store/cart.actions';
+import {
+  addToCart,
+  deleteFromCart,
+  removeFromCart,
+} from '../../store/cart.actions';
 
 @Component({
   selector: 'app-each-cart-item',
@@ -29,6 +33,11 @@ export class EachCartItemComponent implements OnInit {
   removeFromCart() {
     if (this.cartItem) {
       this.store.dispatch(removeFromCart({ product: this.cartItem }));
+    }
+  }
+  deleteFromCart() {
+    if (this.cartItem) {
+      this.store.dispatch(deleteFromCart({ product: this.cartItem }));
     }
   }
   constructor(private store: Store<{ cart: ICartItem[] }>) {}
