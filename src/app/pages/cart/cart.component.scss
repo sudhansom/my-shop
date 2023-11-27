@@ -1,5 +1,12 @@
 :host {
   .cart {
-    height: 90dvh;
+    min-height: 90dvh;
+    .total-amount {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-weight: bold;
+      padding: 12px;
+    }
   }
 }

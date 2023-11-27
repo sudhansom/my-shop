@@ -7,12 +7,7 @@ import { DataService } from '../../services/data.service';
 import { ProductComponent } from '../../components/product/product.component';
 import { CardComponent } from '../../components/card/card.component';
 
-interface IProduct {
-  category: string;
-  id: number;
-  image: string;
-  price: number;
-}
+import { IProduct } from '../../models/product.model';
 
 @Component({
   selector: 'app-products',
