@@ -9,5 +9,12 @@
       gap: 12px;
       padding: 12px;
     }
+    .is-loading {
+      min-height: 90dvh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
   }
 }

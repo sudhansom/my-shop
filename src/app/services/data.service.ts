@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
   apiUrl = 'https://fakestoreapi.com';
   category$ = new BehaviorSubject<string[]>([]);
+  isLoading$ = new BehaviorSubject<boolean>(false);
 
   constructor(private _http: HttpClient) {}
 

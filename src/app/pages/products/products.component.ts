@@ -6,19 +6,21 @@ import { BehaviorSubject } from 'rxjs';
 import { DataService } from '../../services/data.service';
 import { ProductComponent } from '../../components/product/product.component';
 import { CardComponent } from '../../components/card/card.component';
+import { SpinnerComponent } from '../../components/spinner/spinner.component';
 
 import { IProduct } from '../../models/product.model';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, ProductComponent, CardComponent],
+  imports: [CommonModule, ProductComponent, CardComponent, SpinnerComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
 export class ProductsComponent implements OnInit {
   products$ = this._data.getProducts();
   category$ = this._data.category$;
+  isLoading$ = this._data.isLoading$;
   selectedCategory$ = new BehaviorSubject<string>('');
   constructor(private _data: DataService) {}
 
@@ -41,6 +43,7 @@ export class ProductsComponent implements OnInit {
     );
   }
   fetchData() {
+    this._data.isLoading$.next(true);
     this.products$.subscribe(
       (
         products: {
@@ -50,6 +53,7 @@ export class ProductsComponent implements OnInit {
           price: number;
         }[]
       ) => {
+        this._data.isLoading$.next(false);
         let category = products
           .map((item) => item.category)
           .filter((a, i, arr) => {
