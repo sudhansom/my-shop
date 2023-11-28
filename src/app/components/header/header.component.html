@@ -16,6 +16,11 @@
   <ng-container *ngIf="totalItem">
     <div *ngIf="showCart$ | async" class="showCart">
       <ol class="items">
+        <li class="each-item bold">
+          <p>item</p>
+          <p>price</p>
+          <p>quantity</p>
+        </li>
         <li *ngFor="let item of cartItems$ | async" class="each-item">
           <p>{{ item.title | shorten }}</p>
           <p>{{ item.price }}</p>
