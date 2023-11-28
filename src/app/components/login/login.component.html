@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Login:</h2>
+  <form #form="ngForm" (ngSubmit)="submitForm(form)">
+    <label
+      >Email:
+      <input type="text" ngModel name="email" required email />
+    </label>
+    <label
+      >Password:
+      <input type="password" ngModel name="password" required minlength="6" />
+    </label>
+    <button [ngClass]="form.valid ? 'form-valid' : ''" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>

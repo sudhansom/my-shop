@@ -7,6 +7,10 @@
     padding: 12px;
     display: flex;
     justify-content: space-between;
+    .logo {
+      display: flex;
+      gap: 12px;
+    }
     a {
       color: #fff;
       text-decoration: none;
