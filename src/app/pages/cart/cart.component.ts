@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { ICartItem } from '../../models/cartItems.model';
 import { EachCartItemComponent } from '../../components/each-cart-item/each-cart-item.component';
-import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
+import { NavigationDirective } from '../../../directives/navigtion/navigation.directive';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, EachCartItemComponent],
+  imports: [CommonModule, EachCartItemComponent, NavigationDirective],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })

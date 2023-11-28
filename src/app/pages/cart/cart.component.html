@@ -1,4 +1,4 @@
-<div class="cart">
+<div *ngIf="totalAmount" class="cart">
   <app-each-cart-item
     *ngFor="let item of cartItems$ | async"
     [cartItem]="item"
@@ -7,4 +7,10 @@
     <p>Total Amount</p>
     <p>{{ totalAmount | currency }}</p>
   </div>
+</div>
+<div *ngIf="!totalAmount" class="empty">
+  <p>Your Shopping Cart is empty.</p>
+  <a [smNavigate]="'/'" routerLinkActive="router-link-active"
+    >Go Back to Shopping...</a
+  >
 </div>

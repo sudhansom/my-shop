@@ -9,4 +9,21 @@
       padding: 12px;
     }
   }
+  .empty {
+    min-height: 88dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    p {
+      font-size: 24px;
+    }
+    a {
+      text-decoration: none;
+      &:visited {
+        color: black;
+      }
+    }
+  }
 }
