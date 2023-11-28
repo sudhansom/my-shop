@@ -16,7 +16,7 @@
   <div *ngIf="isLoading$ | async" class="is-loading">
     <app-spinner style="display: block"></app-spinner>
   </div>
-  <div *ngIf="!(isLoading$ | async)" class="is-loading">
+  <div *ngIf="!(isLoading$ | async) && (isError$ | async)" class="is-loading">
     <p class="error">{{ isError$ | async | json }}</p>
   </div>
 </div>

@@ -4,6 +4,7 @@
 
     .products {
       flex-basis: 70%;
+      min-height: 90dvh;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
