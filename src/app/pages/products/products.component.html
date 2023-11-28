@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngIf="!(isLoading$ | async)">
+  <div *ngIf="!(isLoading$ | async) && !(isError$ | async)">
     <app-card
       [categories]="category$ | async"
       (onCategorySelected)="selectCategory($event)"
@@ -14,6 +14,9 @@
     </main>
   </div>
   <div *ngIf="isLoading$ | async" class="is-loading">
-    <app-spinner></app-spinner>
+    <app-spinner style="display: block"></app-spinner>
+  </div>
+  <div *ngIf="!(isLoading$ | async)" class="is-loading">
+    <p class="error">{{ isError$ | async | json }}</p>
   </div>
 </div>

@@ -21,6 +21,7 @@ export class ProductsComponent implements OnInit {
   products$ = this._data.getProducts();
   category$ = this._data.category$;
   isLoading$ = this._data.isLoading$;
+  isError$ = new BehaviorSubject<string>('');
   selectedCategory$ = new BehaviorSubject<string>('');
   constructor(private _data: DataService) {}
 
@@ -60,6 +61,10 @@ export class ProductsComponent implements OnInit {
             return arr.indexOf(a) === i;
           });
         this._data.category$.next(category);
+      },
+      (error) => {
+        this._data.isLoading$.next(false);
+        this.isError$.next(`Error: ${error.message}`);
       }
     );
   }
