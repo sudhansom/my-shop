@@ -71,7 +71,13 @@
           justify-content: space-between;
           font-size: 12px;
           padding: 12px 0;
-          gap: 12px;
+          gap: 36px;
+          p {
+            flex-basis: 25%;
+          }
+          p:first-child {
+            flex-basis: 50%;
+          }
           &.bold {
             font-weight: bold;
           }

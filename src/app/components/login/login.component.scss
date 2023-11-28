@@ -1,13 +1,20 @@
 :host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 88dvh;
+
   .container {
-    max-width: 600px;
-    margin: 12px auto;
     border: 1px solid gray;
     border-radius: 12px;
     padding: 12px;
+
     h2 {
       text-align: center;
       margin-bottom: 24px;
+      background-color: rgb(223, 220, 220);
+      border-radius: 6px;
+      padding: 3px;
     }
     form {
       display: flex;
