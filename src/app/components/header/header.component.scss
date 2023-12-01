@@ -36,7 +36,7 @@
         position: relative;
         fill: #fff;
         &:after {
-          content: attr(data-after-content);
+          content: attr(data-total);
           position: absolute;
           display: flex;
           justify-content: center;
@@ -47,6 +47,12 @@
           background-color: red;
           right: calc(var(--badge-width) / -2);
           top: calc(var(--badge-width) / -2);
+          font-size: 14px;
+        }
+        &.empty {
+          &:after {
+            display: none;
+          }
         }
       }
     }

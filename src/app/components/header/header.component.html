@@ -11,7 +11,8 @@
       <span
         (click)="toogleShowCart()"
         class="cart"
-        data-after-content="0"
+        [attr.data-total]="totalItem"
+        [ngClass]="totalItem ? '' : 'empty'"
         smSvgIcon="shopping_cart"
       ></span>
     </li>

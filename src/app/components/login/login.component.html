@@ -1,4 +1,7 @@
-<div class="container">
+<div *ngIf="error">
+  <p>{{ error }}</p>
+</div>
+<div class="container" *ngIf="!isLoading && !error">
   <h2>Login:</h2>
   <form #form="ngForm" (ngSubmit)="submitForm(form)">
     <label
@@ -10,7 +13,13 @@
       <input type="password" ngModel name="password" required minlength="6" />
     </label>
     <button [ngClass]="form.valid ? 'form-valid' : ''" [disabled]="!form.valid">
-      Submit
+      {{ isLoginMode ? "Login" : "Sign Up" }}
+    </button>
+    <button type="button" (click)="onSwitchMode()">
+      Switch to {{ isLoginMode ? " Sign Up" : " Login" }}
     </button>
   </form>
+</div>
+<div *ngIf="isLoading">
+  <app-spinner></app-spinner>
 </div>
